@@ -5,6 +5,7 @@ import CreateRoom from './screens/CreateRoom'
 import JoinRoom from './screens/JoinRoom'
 import Lobby from './screens/Lobby'
 import HowToPlay from './screens/HowToPlay'
+import Game from './screens/Game'
 
 const App = () => {
   const [screen, setScreen] = useState('splash')
@@ -52,6 +53,15 @@ const App = () => {
     })
   }
 
+  const handleStartGame = () => {
+    setScreen('game')
+  }
+
+  const handleGameEnd = (scores) => {
+    // TODO: Navigate to final results screen with scores
+    handleGoHome()
+  }
+
   return (
     <div className="app">
       {screen === 'splash' && <Splash onComplete={() => setScreen('home')} />}
@@ -80,6 +90,13 @@ const App = () => {
           roomCode={gameState.roomCode}
           isHost={gameState.isHost}
           onBack={handleGoHome}
+          onStartGame={handleStartGame}
+        />
+      )}
+      {screen === 'game' && (
+        <Game
+          players={gameState.players}
+          onGameEnd={handleGameEnd}
         />
       )}
       {screen === 'howToPlay' && (
