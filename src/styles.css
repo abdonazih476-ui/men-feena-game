@@ -280,6 +280,15 @@ html, body {
   transition: all 0.3s ease;
 }
 
+.btn-small:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+}
+
+.btn-small:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
 .btn-back {
   background: transparent;
   border: none;
@@ -377,6 +386,25 @@ html, body {
   letter-spacing: 8px;
   margin-bottom: 16px;
   font-family: 'Courier New', monospace;
+}
+
+.copy-error-message {
+  font-size: 14px;
+  color: #FF6B6B;
+  margin-top: 12px;
+  font-weight: 600;
+  animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* PLAYERS LIST */
@@ -517,6 +545,10 @@ html, body {
   
   .room-code-value {
     font-size: 36px;
+  }
+  
+  .copy-error-message {
+    font-size: 13px;
   }
 }
 
