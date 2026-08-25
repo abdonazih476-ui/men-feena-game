@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-const Lobby = ({ players, roomCode, isHost, onBack }) => {
+const Lobby = ({ players, roomCode, isHost, onBack, onStartGame }) => {
   const [copyButtonText, setCopyButtonText] = useState('نسخ')
   const [copyMessage, setCopyMessage] = useState('')
   const [isCopying, setIsCopying] = useState(false)
 
   const handleStartGame = () => {
-    alert('اللعبة جاهزة للبدء!')
+    onStartGame()
   }
 
   const copyToClipboard = async () => {
